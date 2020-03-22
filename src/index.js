@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import Routes from './components/Routes';
+import TopBar from './components/topbar';
+
 import { 
   Switch, 
-  BrowserRouter as Router,
-
+  BrowserRouter as Router
 } from 'react-router-dom';
 
 const App = () => {
   return (
     <div>
       <Router>
+        <TopBar/>
         <Routes/>
       </Router>
     </div>
