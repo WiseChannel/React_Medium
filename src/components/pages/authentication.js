@@ -2,15 +2,14 @@ import React, {useState} from 'react'
 
 //import Components
 import { Link } from "react-router-dom";
-import axios from 'axios'
 import useFetch from "../Hooks/useFetch";
 
-const Authentication = props => {;
+const Authentication = props => {
 
     const isLogin = props.match.path === '/login';
     const pageTitle = isLogin ? 'Sign In' : 'Sign Up';
     const descriptionLink = isLogin ? '/register' : '/login';
-    const descriptionText = isLogin ? 'Need an accoutn' : 'Have an account?';
+    const descriptionText = isLogin ? 'Need an account' : 'Have an account?';
     const apiUrl = isLogin ? '/user/login' : '/users'
 
     const [email, setEmail] = useState('');
@@ -18,7 +17,7 @@ const Authentication = props => {;
     const [userName, setUserName] = useState('')
     const [{isLoading, error, response}, doFetch] = useFetch(apiUrl);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = e => {
         e.preventDefault()
         const user = isLogin ? {email, password} : {email, password, userName}
 
