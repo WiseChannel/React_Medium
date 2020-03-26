@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 //import Components
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import useFetch from "../Hooks/useFetch";
 
 const Authentication = props => {
@@ -10,12 +10,13 @@ const Authentication = props => {
     const pageTitle = isLogin ? 'Sign In' : 'Sign Up';
     const descriptionLink = isLogin ? '/register' : '/login';
     const descriptionText = isLogin ? 'Need an account' : 'Have an account?';
-    const apiUrl = isLogin ? '/user/login' : '/users'
+    const apiUrl = isLogin ? '/users/login' : '/users'
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userName, setUserName] = useState('')
     const [{isLoading, error, response}, doFetch] = useFetch(apiUrl);
+    const [isSuccessfullSubmit, setIsSuccessfullSubmit] = useState(false)
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -28,6 +29,17 @@ const Authentication = props => {
             }
         })
     };
+
+    useFetch(() => {
+        if (!response) return
+
+        localStorage.setItem('token', response.user.token)
+        setIsSuccessfullSubmit(true)
+    }, [response]);
+
+    if (isSuccessfullSubmit) {
+        return <Redirect to='/' />
+    }
 
     return (
         <div className="auth-page">
