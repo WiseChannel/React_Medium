@@ -4,10 +4,9 @@ import ReactDOM from 'react-dom';
 import Routes from './components/Routes';
 import TopBar from './components/topbar';
 
-import { 
-  Switch, 
-  BrowserRouter as Router
-} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { CurrentUserProvider } from './components/context/currentUser'
+ 
 
 const App = () => {
   return (

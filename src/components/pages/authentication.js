@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 
 //import Components
 import { Link, Redirect } from "react-router-dom";
 import useFetch from "../Hooks/useFetch";
 import useLocalStorage from '../Hooks/useLocalStorage'
+import { CurrentUserContext } from '../context/currentUser'
 
 const Authentication = props => {
 
@@ -16,9 +17,10 @@ const Authentication = props => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userName, setUserName] = useState('')
-    const [{isLoading, error, response}, doFetch] = useFetch(apiUrl);
+    const [{isLoading, response}, doFetch] = useFetch(apiUrl);
     const [isSuccessfullSubmit, setIsSuccessfullSubmit] = useState(false)
     const [token, setToken] = useLocalStorage('')
+    const [currentUserState, setCurrentUserState] = useContext(CurrentUserContext)
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -35,9 +37,16 @@ const Authentication = props => {
     useFetch(() => {
         if (!response) return
         console.log('token' + token)
+
         setToken(response.user.token)
         setIsSuccessfullSubmit(true)
-    }, [response]);
+        setCurrentUserState(state => ({
+            ...state,
+            isLoggenIn: true,
+            isLoading: false,
+            currentUser: response.user
+        }))
+    }, [response, setToken]);
 
     if (isSuccessfullSubmit) {
         return <Redirect to='/' />

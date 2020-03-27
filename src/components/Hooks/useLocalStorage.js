@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import  {useState, useEffect} from 'react'
 
 export default (key, initialValue = '') => {
     const [value, setValue] = useState(() => {
@@ -7,7 +7,7 @@ export default (key, initialValue = '') => {
 
     useEffect(() => {
         localStorage.setItem(key, value) 
-    }, [value])
+    }, [value, key])
 
     return [value, setValue]
 }
