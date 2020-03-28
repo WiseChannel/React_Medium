@@ -37,7 +37,7 @@ const Authentication = props => {
                 user
             }
         })
-        console.log('Values: ', email, password);
+        console.log( 'Values: ', email, password);
     };
 
     useEffect(() => {
