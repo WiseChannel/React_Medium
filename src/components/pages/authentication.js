@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 
 //import Components
 import { Link, Redirect } from "react-router-dom";
@@ -18,15 +18,18 @@ const Authentication = props => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [userName, setUserName] = useState('')
+    const [username, setUsername] = useState('')
     const [{isLoading, response, error}, doFetch] = useFetch(apiUrl);
     const [isSuccessfullSubmit, setIsSuccessfullSubmit] = useState(false)
     const [, setToken] = useLocalStorage('')
     const [, setCurrentUserState] = useContext(CurrentUserContext)
 
+    console.log('Error: ' + error)
+
     const handleSubmit = e => {
         e.preventDefault()
-        const user = isLogin ? {email, password} : {email, password, userName}
+        
+        const user = isLogin ? {email, password} : {email, password, username}
 
         doFetch({
             method: 'post',
@@ -34,9 +37,10 @@ const Authentication = props => {
                 user
             }
         })
+        console.log('Values: ', email, password);
     };
 
-    useFetch(() => {
+    useEffect(() => {
         if (!response) return
 
         setToken(response.user.token)
@@ -71,8 +75,8 @@ const Authentication = props => {
                                             type="text"
                                             className="form-control form-control-lg"
                                             placeholder="Username"
-                                            value={userName}
-                                            onChange={e => setUserName(e.target.value)}
+                                            value={username}
+                                            onChange={e => setUsername(e.target.value)}
                                         />
                                     </fieldset>
                                 )}
