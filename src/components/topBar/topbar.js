@@ -1,15 +1,14 @@
 import React, { useContext, Fragment } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
-import { CurrentUserContext } from './context/currentUser'
+import { CurrentUserContext } from '../context/currentUser'
 
 
 const TopBar = () => {
     const [currentUserState] = useContext(CurrentUserContext)
-    const userImage =
-      (currentUserState.isLoggedIn && currentUserState.currentUser.image) ||
-      'https://static.productionready.io/images/smiley-cyrus.jpg'
-  
+
+    const userImage = (currentUserState.isLoggedIn && currentUserState.currentUser.image) || 'https://static.productionready.io/images/smiley-cyrus.jpg'
+
     return (
       <nav className="navbar navbar-light">
         <div className="container">

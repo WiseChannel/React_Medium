@@ -3,7 +3,8 @@ import axios from "axios";
 
 import useLocalStorage from './useLocalStorage'
 
-export default  url => {
+export default url => {
+
     const baseUrl = 'https://conduit.productionready.io/api'
     const [isLoading, setIsLoading] = useState(false)
     const [response, setResponse] = useState(null)

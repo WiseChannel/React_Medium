@@ -28,7 +28,7 @@ const Authentication = props => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        
+
         const user = isLogin ? {email, password} : {email, password, username}
 
         doFetch({
@@ -47,7 +47,7 @@ const Authentication = props => {
         setIsSuccessfullSubmit(true)
         setCurrentUserState(state => ({
             ...state,
-            isLoggenIn: true,
+            isLoggedIn: true,
             isLoading: false,
             currentUser: response.user
         }))
