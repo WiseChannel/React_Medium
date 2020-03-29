@@ -7,7 +7,6 @@ import useLocalStorage from '../Hooks/useLocalStorage'
 import { CurrentUserContext } from '../context/currentUser'
 import  BackendErrorMessages from './components/backendErrorMessages'
 
-
 const Authentication = props => {
 
     const isLogin = props.match.path === '/login';
@@ -53,9 +52,7 @@ const Authentication = props => {
         }))
     }, [response, setToken, setCurrentUserState]);
 
-    if (isSuccessfullSubmit) {
-        return <Redirect to='/' />
-    }
+    if (isSuccessfullSubmit) return <Redirect to='/' />
 
     return (
         <div className="auth-page">
