@@ -45,12 +45,6 @@ const Authentication = props => {
         setToken(response.user.token)
         setIsSuccessfullSubmit(true)
         dispatch({type: 'SET_AUTHORIZED', payload: response.user})
-        // setCurrentUserState(state => ({
-        //     ...state,
-        //     isLoggedIn: true,
-        //     isLoading: false,
-        //     currentUser: response.user
-        // }))
     }, [response, setToken, dispatch]);
 
     if (isSuccessfullSubmit) return <Redirect to='/' />
