@@ -26,7 +26,7 @@ const ArticleForm = ({onSubmit, errors, initialValues}) => {
         setTitle(initialValues.title)
         setDescription(initialValues.description)
         setBody(initialValues.body)
-        setTagList(initialValues.tagList)
+        setTagList(initialValues.tagList.join(' '))
     }, [initialValues])
 
     console.log('fields', title, body, description, tagList)
