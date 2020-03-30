@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 
 import useFetch from "../../Hooks/useFetch";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Loading from "../components/loading";
 import ErrorMessage from "../components/errorMessage";
 import TagList from "../components/tagList";

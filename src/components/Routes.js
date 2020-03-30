@@ -7,7 +7,7 @@ import Article from './pages/article/article'
 import Authentication from './pages/authentication';
 import TagFeed from './pages/tagFeed/tagFeed';
 import YourFeed from './pages/tagFeed/tagFeed';
-import CreateArticle from './pages/components/articleForm';
+import CreateArticle from "./pages/createArticle";
 
 export default () => {
     return (
