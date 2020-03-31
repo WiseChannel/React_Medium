@@ -3,9 +3,8 @@ import { NavLink } from 'react-router-dom'
 
 import useFetch from '../../Hooks/useFetch'
 
-const UserProfile = ({match, loaction}) => {
+const UserProfile = ({match}) => {
     const slug = match.params.slug
-    const isFavorites = loaction.pathname.includes('favorites')
     const apiUrl = `/profiels/${slug}`
     const [{response}, doFetch] = useFetch(apiUrl)
 
