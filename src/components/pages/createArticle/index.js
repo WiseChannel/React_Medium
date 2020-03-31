@@ -13,7 +13,6 @@ const CreateArticle = () => {
     const [currentUserState] = useContext(CurrentUserContext)
 
     const onSubmit = article => {
-        console.log('data', article)
         doFetch({
             method: 'post',
             data: {

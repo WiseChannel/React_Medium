@@ -23,7 +23,6 @@ const Authentication = props => {
     const [, setToken] = useLocalStorage('')
     const [, dispatch] = useContext(CurrentUserContext)
 
-    console.log('Error: ' + error)
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -36,7 +35,6 @@ const Authentication = props => {
                 user
             }
         })
-        console.log( 'Values: ', email, password);
     };
 
     useEffect(() => {

@@ -13,7 +13,6 @@ import FeedTogler from "../components/feedTogler";
 const GlobalFeed = ({location, match}) => {
 
     const {offset, currentPage} = getPaginator(location.search)
-    console.log('off, currP: ', currentPage, offset)
     const stringifiedParams = stringify({
          limit,
          offset
@@ -21,7 +20,6 @@ const GlobalFeed = ({location, match}) => {
     const url = match.url
     const apiUrl = `/articles?${stringifiedParams}`
     const [{response, error, isLoading}, doFetch] = useFetch(apiUrl)
-    console.log('Response from globalFeed: ', response);
 
     useEffect(() => {
         doFetch()

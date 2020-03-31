@@ -15,7 +15,6 @@ const EditArticle = ({match}) => {
     const [isSuccessfullSubmit, setIsSuccessfullSubmit] = useState(false)
 
     const handleSubmit = article => {
-        console.log('handleSubmit: ', article)
         doUpdateArticle({
             method: 'put',
             data: {

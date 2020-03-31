@@ -34,7 +34,6 @@ const Article = (props) => {
         })
     }
 
-    console.log('isAuthoh', isAuthor())
 
     useEffect(() => {
         doFetch()
