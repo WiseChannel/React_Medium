@@ -39,7 +39,7 @@ export default url => {
                 }
          }).catch(e => {
             if (!skipGetResponseAfterDestroy) {
-                setResponse(res.data);
+                setError(e.response.data);
                 setIsLoading(false)
             }
         })
