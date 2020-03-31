@@ -9,11 +9,13 @@ import TagFeed from './pages/tagFeed/tagFeed';
 import YourFeed from './pages/tagFeed/tagFeed';
 import CreateArticle from "./pages/createArticle";
 import EditArticle from './pages/editArticle/editArticle'
+import Settings from './pages/settings/index.js'
 
 export default () => { 
     return (
         <Switch>
             <Route exact path='/' component={GlobalFeed} />
+            <Route path='/settings' component={Settings} />
             <Route path='/articles/new' component={CreateArticle} />
             <Route path='/articles/:slug/edit' component={EditArticle} />
             <Route path='/feed' component={YourFeed} />
