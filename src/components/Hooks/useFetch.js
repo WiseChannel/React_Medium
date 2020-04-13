@@ -48,6 +48,6 @@ export default url => {
             skipGetResponseAfterDestroy = true
         }
     }, [isLoading, options, url, token]);
-
+    
     return [{isLoading, response, error}, doFetch]
 }
